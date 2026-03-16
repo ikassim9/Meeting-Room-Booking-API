@@ -2,14 +2,20 @@ class ReservationsController < ApplicationController
   before_action :set_room
   before_action :set_reservation, only: %i[show destroy]
 
+  # GET /rooms/:room_id/reservations
+  # Lists all reservations for a specific room
   def index
     render json: @room.reservations
   end
 
+  # GET /rooms/:id/reservations/:id
+  # Shows a single reservation under a specific room
   def show
     render json: @reservation
   end
 
+  # POST /rooms/:id/reservations
+  # Creates a new reservation for a specific room
   def create
     reservation = @room.reservations.new(reservation_params)
     if reservation.save
@@ -19,6 +25,7 @@ class ReservationsController < ApplicationController
     end
   end
 
+  # DELETE /rooms/:id/reservations/:id
   def destroy
     @reservation.destroy
   end
