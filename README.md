@@ -157,7 +157,7 @@ POST /rooms/1/reservations
     ]
 }
 ```
-**Bad reservation (start time is not before end time)**
+**Bad Reservation (start time is not before end time)**
 ```json
 
 POST /rooms/1/reservations
